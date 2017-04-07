@@ -14,12 +14,8 @@ namespace CreditService
     {
 
         [OperationContract]
-        string GetData(int value);
-
-        [OperationContract]
-        CompositeType GetDataUsingDataContract(CompositeType composite);
-
-        // TODO: Add your service operations here
+        [WebInvoke(Method = "GET", UriTemplate = "/verifyccn/{ccn}", ResponseFormat = WebMessageFormat.Json)]
+        bool verifyccn(string ccn);
     }
 
 

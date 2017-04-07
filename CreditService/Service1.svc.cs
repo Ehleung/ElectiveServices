@@ -12,22 +12,21 @@ namespace CreditService
     // NOTE: In order to launch WCF Test Client for testing this service, please select Service1.svc or Service1.svc.cs at the Solution Explorer and start debugging.
     public class Service1 : IService1
     {
-        public string GetData(int value)
+        public bool verifyccn(string ccn)
         {
-            return string.Format("You entered: {0}", value);
-        }
+            bool valid = true;
 
-        public CompositeType GetDataUsingDataContract(CompositeType composite)
-        {
-            if (composite == null)
-            {
-                throw new ArgumentNullException("composite");
-            }
-            if (composite.BoolValue)
-            {
-                composite.StringValue += "Suffix";
-            }
-            return composite;
+            Random rng = new Random();
+
+            if (ccn.Length < 3 || ccn.Length > 12)      // Verify length of CCN is between 4 and 12
+                valid = false;
+
+            if (Convert.ToInt32(ccn[0]) % 2 == 1)       // Verify first digit is even
+                valid = false;
+
+
+
+            return valid;
         }
     }
 }
