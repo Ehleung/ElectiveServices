@@ -1,0 +1,6 @@
+D:\Github\ElectiveServices\CreditService\bin\CreditService.dll.config
+D:\Github\ElectiveServices\CreditService\bin\CreditService.dll
+D:\Github\ElectiveServices\CreditService\bin\CreditService.pdb
+D:\Github\ElectiveServices\CreditService\obj\Debug\CreditService.csprojResolveAssemblyReference.cache
+D:\Github\ElectiveServices\CreditService\obj\Debug\CreditService.dll
+D:\Github\ElectiveServices\CreditService\obj\Debug\CreditService.pdb

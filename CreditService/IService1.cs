@@ -12,32 +12,12 @@ namespace CreditService
     [ServiceContract]
     public interface IService1
     {
-
         [OperationContract]
         [WebInvoke(Method = "GET", UriTemplate = "/verifyccn/{ccn}", ResponseFormat = WebMessageFormat.Json)]
         bool verifyccn(string ccn);
-    }
 
-
-    // Use a data contract as illustrated in the sample below to add composite types to service operations.
-    [DataContract]
-    public class CompositeType
-    {
-        bool boolValue = true;
-        string stringValue = "Hello ";
-
-        [DataMember]
-        public bool BoolValue
-        {
-            get { return boolValue; }
-            set { boolValue = value; }
-        }
-
-        [DataMember]
-        public string StringValue
-        {
-            get { return stringValue; }
-            set { stringValue = value; }
-        }
+        [OperationContract]
+        [WebInvoke(Method = "GET", UriTemplate = "/payment/{subtotal}", ResponseFormat = WebMessageFormat.Json)]
+        string payment(string subtotal);
     }
 }

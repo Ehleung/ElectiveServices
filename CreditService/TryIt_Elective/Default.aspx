@@ -9,17 +9,22 @@
 
     <div class="row">
         <div class="col-md-4">
-            <h2>Service #1 - Process Payment</h2>
+            <h2>Service #1 - Verify Credit Card Number</h2>
             <p>
-                ASP.NET Web Forms lets you build dynamic websites using a familiar drag-and-drop, event-driven model.
-            A design surface and hundreds of controls and components let you rapidly build sophisticated, powerful UI-driven sites with data access.
+                Enter your credit card number here:
+                <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
             </p>
             <p>
-                <a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301948">Learn more &raquo;</a>
+                <asp:Button ID="Button1" runat="server" Text="Button" />
+            </p>
+            <p>
+                For grading purposes, first four digits must be &#39;3490&#39;. The string MUST be 8 or 12 digits long. The last two digits in any CCN must be a prime number (ie. 29).</p>
+            <p>
+                <asp:Label ID="Label1" runat="server"></asp:Label>
             </p>
         </div>
         <div class="col-md-4">
-            <h2>Get more libraries</h2>
+            <h2>Service #2 - Process Payment</h2>
             <p>
                 NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.
             </p>

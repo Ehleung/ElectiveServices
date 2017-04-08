@@ -14,19 +14,39 @@ namespace CreditService
     {
         public bool verifyccn(string ccn)
         {
-            bool valid = true;
-
             Random rng = new Random();
 
-            if (ccn.Length < 3 || ccn.Length > 12)      // Verify length of CCN is between 4 and 12
-                valid = false;
+            for (int k = 0; k < ccn.Length; k++)
+                if (!Char.IsDigit(ccn[k]))
+                    return false;
 
-            if (Convert.ToInt32(ccn[0]) % 2 == 1)       // Verify first digit is even
-                valid = false;
+            if (ccn.Length != 8 && ccn.Length != 12)      // Verify length of CCN is between 4 and 12
+                return false;
 
+            string check = "";
+            for (int i = 0; i < 4; i++)
+                check += ccn[i];
+            if (check != "3490")       // Verify first four digits are 3490
+                return false;
 
+            check = ccn[ccn.Length - 2].ToString();
+            check += ccn[ccn.Length - 1];      // Get the last two characters
+            int prime = Convert.ToInt32(check);
 
-            return valid;
+            int[] primeOptions = new int[] { 2, 3, 5, 7 };
+
+            for (int j = 0; j < primeOptions.Length; j++)
+                if (prime % primeOptions[j] == 0)   // Divide by each integer to check if prime number of not; 4, 6, 8, 9 are multiples of the above factors.
+                    return false;
+
+            return true;
+        }
+
+        public string payment (string subtotal)
+        {
+            double total = Convert.ToDouble(subtotal);
+
+            return total.ToString();
         }
     }
 }
